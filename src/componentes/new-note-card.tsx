@@ -70,14 +70,14 @@ export function NewNoteCard({ onNoteCreated}: NewNoteCardProps){
             console.error(event)
         }
 
-        speechRecognition.start
+        speechRecognition.start()
     }
 
     function handleStopRecording(){
         setIsRecording(false)
 
         if(speechRecognition !== null){
-            speechRecognition.stop
+            speechRecognition.stop()
         }
     }
     return (
