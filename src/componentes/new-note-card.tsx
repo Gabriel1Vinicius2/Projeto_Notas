@@ -6,8 +6,9 @@ import { toast} from 'sonner'
 interface NewNoteCardProps{
     onNoteCreated: (content: string) => void
 }
+const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
 
-let speechRecognition: SpeechRecognition | null = null
+const speechRecognition = new SpeechRecognitionAPI()
 
 export function NewNoteCard({ onNoteCreated}: NewNoteCardProps){
     const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true)
@@ -50,9 +51,6 @@ export function NewNoteCard({ onNoteCreated}: NewNoteCardProps){
         }
         setIsRecording(true)
         setShouldShowOnboarding(false)
-        const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition
-
-        speechRecognition = new SpeechRecognitionAPI()
 
         speechRecognition.lang = 'pt-BR'
         speechRecognition.continuous = true
