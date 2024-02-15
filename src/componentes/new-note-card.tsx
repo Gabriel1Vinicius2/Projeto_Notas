@@ -62,7 +62,7 @@ export function NewNoteCard({ onNoteCreated}: NewNoteCardProps){
                 
                 return text.concat(result[0].transcript)
             },'')
-            console.log(transcription)
+            toast.success(transcription)
             setContent(transcription)
         }
         speechRecognition.onerror = (event) =>{
